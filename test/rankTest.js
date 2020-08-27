@@ -5,7 +5,7 @@ rankTest('foo', t => {
   t.pass();
 });
 
-rankTest('test1', t => {
+rankTest('test should return B when given voyage with west-indies 10 history length 4', t => {
   const voyage = {
     zone: 'west-indies',
     length: 10,
