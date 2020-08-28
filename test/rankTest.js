@@ -14,10 +14,10 @@ rankTest('test should return B when given voyage with west-indies 10 history len
     {
       zone: 'east-indies',
       profit: 1,
-    },{
+    }, {
       zone: 'west-indies',
       profit: 2,
-    },{
+    }, {
       zone: 'china',
       profit: 3,
     },
@@ -27,7 +27,7 @@ rankTest('test should return B when given voyage with west-indies 10 history len
     },
   ];
   const myRating = rating(voyage, history);
-  t.is(myRating,'B');
+  t.is(myRating, 'B');
 });
 
 rankTest('test should return A when rating given voyage with china 19 history length 11', t => {
@@ -204,36 +204,36 @@ rankTest('test should retrn B when rating given voyage with german 19 history le
       profit: 11,
     },
   ];
-    //when
-    let result = rating(voyage, history);
-    //then
-    t.is('B', result);
-  })
+  //when
+  let result = rating(voyage, history);
+  //then
+  t.is('B', result);
+})
 
-  rankTest('test should return B when given voyage with west-indies 10 history length 4', t => {
-    const voyage = {
+rankTest('test should return B when given voyage with west-indies 10 history length 4', t => {
+  const voyage = {
+    zone: 'west-indies',
+    length: 3,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 1,
+    }, {
       zone: 'west-indies',
-      length: 3,
-    };
-    const history = [
-      {
-        zone: 'east-indies',
-        profit: 1,
-      },{
-        zone: 'west-indies',
-        profit: 2,
-      },{
-        zone: 'china',
-        profit: 3,
-      },
-      {
-        zone: 'west-africa',
-        profit: 4,
-      },
-    ];
-    const myRating = rating(voyage, history);
-    t.is(myRating,'B');
-  });
+      profit: 2,
+    }, {
+      zone: 'china',
+      profit: 3,
+    },
+    {
+      zone: 'west-africa',
+      profit: 4,
+    },
+  ];
+  const myRating = rating(voyage, history);
+  t.is(myRating, 'B');
+});
 
 
 
