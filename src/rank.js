@@ -1,8 +1,6 @@
 function voyageRisk(voyage) {
   let result = 1;
-  if (voyage.length > 4) {
-    result += 2;
-  }
+  result += voyage.length > 8 ? 2 : 0;
   if (voyage.length > 8) {
     result += voyage.length - 8;
   }
@@ -21,9 +19,7 @@ function hasChina(history) {
 
 function captainHistoryRisk(voyage, history) {
   let result = 1;
-  if (history.length < 5) {
-    result += 4;
-  }
+  result += history.length < 5 ? 4 : 0;
   result += history.filter(v => v.profit < 0).length;
   if (voyage.zone === 'china' && hasChina(history)) {
     result -= 2;
