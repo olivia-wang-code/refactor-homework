@@ -63,7 +63,6 @@ function caculateResult(voyage, history, result) {
   }
   return result;
 }
-
 module.exports = {
   rating
 };
