@@ -210,6 +210,30 @@ rankTest('test should retrn B when rating given voyage with german 19 history le
     t.is('B', result);
   })
 
+  rankTest('test should return B when given voyage with west-indies 10 history length 4', t => {
+    const voyage = {
+      zone: 'west-indies',
+      length: 3,
+    };
+    const history = [
+      {
+        zone: 'east-indies',
+        profit: 1,
+      },{
+        zone: 'west-indies',
+        profit: 2,
+      },{
+        zone: 'china',
+        profit: 3,
+      },
+      {
+        zone: 'west-africa',
+        profit: 4,
+      },
+    ];
+    const myRating = rating(voyage, history);
+    t.is(myRating,'B');
+  });
 
 
 
