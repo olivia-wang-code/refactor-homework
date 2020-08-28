@@ -6,13 +6,12 @@ function calculateOutstanding(invoice) {
   return outstanding;
 }
 
-function calculateDetails(invoice,outstanding,result) {
+function calculateDetails(invoice, outstanding, result) {
   result += `name: ${invoice.customer}`;
   result += `amount: ${outstanding}`;
   result += `amount: ${invoice.dueDate.toLocaleDateString()}`;
   return result;
 }
-
 
 function printOwing(invoice) {
   let result = "";
@@ -26,13 +25,7 @@ function printOwing(invoice) {
   const today = new Date();
   invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
 
-  return calculateDetails(invoice,outstanding,result);
-
-  // // print details
-  // result += `name: ${invoice.customer}`;
-  // result += `amount: ${outstanding}`;
-  // result += `amount: ${invoice.dueDate.toLocaleDateString()}`;
-  // return result;
+  return calculateDetails(invoice, outstanding, result);
 }
 
 module.exports = {
