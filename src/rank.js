@@ -31,7 +31,7 @@ function captainHistoryRisk (voyage, history) {
   return Math.max(result, 0);
 }
 
-function voyageProfitFactor (voyage, history) {
+function voyageProfitFactor (voyage,history) {
   let result = 2;
   if (voyage.zone === 'china') {
     result += 1;
@@ -39,6 +39,22 @@ function voyageProfitFactor (voyage, history) {
   if (voyage.zone === 'east-indies') {
     result += 1;
   }
+  return caculateResult(voyage, history,result)
+}
+
+function rating (voyage, history) {
+  const vpf = voyageProfitFactor(voyage, history);
+  const vr = voyageRisk(voyage);
+  const chr = captainHistoryRisk(voyage, history);
+  if (vpf * 3 > (vr + chr * 2)) {
+    return 'A';
+  }
+  else {
+    return 'B';
+  }
+}
+
+function caculateResult (voyage, history,result){
   if (voyage.zone === 'china' && hasChina(history)) {
     result += 3;
     if (history.length > 10) {
@@ -60,18 +76,6 @@ function voyageProfitFactor (voyage, history) {
     }
   }
   return result;
-}//vpf
-
-function rating (voyage, history) {
-  const vpf = voyageProfitFactor(voyage, history);
-  const vr = voyageRisk(voyage);
-  const chr = captainHistoryRisk(voyage, history);
-  if (vpf * 3 > (vr + chr * 2)) {
-    return 'A';
-  }
-  else {
-    return 'B';
-  }
 }
 
 module.exports = {
