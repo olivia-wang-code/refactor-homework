@@ -235,5 +235,30 @@ rankTest('test should return B when given voyage with west-indies 10 history len
   t.is(myRating, 'B');
 });
 
+rankTest('test should return B when given voyage with japan 10 history length 4', t => {
+  const voyage = {
+    zone: 'japan',
+    length: 10,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 1,
+    }, {
+      zone: 'west-indies',
+      profit: 2,
+    }, {
+      zone: 'china',
+      profit: 3,
+    },
+    {
+      zone: 'west-africa',
+      profit: 4,
+    },
+  ];
+  const myRating = rating(voyage, history);
+  t.is(myRating, 'B');
+});
+
 
 
