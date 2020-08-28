@@ -88,6 +88,41 @@ rankTest('test should return A when rating given voyage with china 19 history le
   t.is('A', result);
 })
 
+rankTest('test should return A when rating given voyage with china 12 and history length 5 ', t => {
+  //given
+  const voyage = {
+    zone: 'china',
+    length: 12,
+  };
+  const history = [
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 2,
+    },
+    {
+      zone: 'china',
+      profit: 3,
+    },
+    {
+      zone: 'china',
+      profit: 4,
+    },
+    {
+      zone: 'china',
+      profit: 5,
+    }
+  ];
+  //when
+  let result = rating(voyage, history);
+  //then
+  t.is('A', result);
+
+})
+
 
 
 
